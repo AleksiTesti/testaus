@@ -715,3 +715,107 @@ body {
 .grid-card:hover .card-overlay h3 {
     color: #ED6E26;
 }
+
+/* --- NAV BAR: HAKU JA KIELIVALITSIN --- */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 15px;
+}
+
+/* Suurennuslasi & haun säiliö */
+.nav-search-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-toggle-btn {
+    background: transparent;
+    border: none;
+    color: #F1F1F1;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: color 0.2s ease, background 0.2s ease, transform 0.1s ease;
+}
+
+.search-toggle-btn:hover {
+    color: #ED6E26;
+    background: rgba(237, 110, 38, 0.12);
+}
+
+/* Esiin tuleva hakukenttä */
+.nav-search-bar {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    display: none;
+    background: #1D1D1B;
+    border: 1px solid #333330;
+    border-top: 3px solid #ED6E26;
+    border-radius: 6px;
+    padding: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    z-index: 1050;
+}
+
+.nav-search-bar.active {
+    display: block;
+}
+
+.nav-search-bar input {
+    background: #242422;
+    border: 1px solid #3d3d3a;
+    border-radius: 4px;
+    color: #FFFFFF;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    outline: none;
+    width: 220px;
+    font-family: inherit;
+}
+
+.nav-search-bar input:focus {
+    border-color: #ED6E26;
+}
+
+/* Kielikytkin (FIN / ENG) */
+.lang-switch {
+    display: flex;
+    align-items: center;
+    background: #181816;
+    border: 1px solid #333330;
+    border-radius: 20px;
+    padding: 3px 6px;
+}
+
+.lang-btn {
+    color: #999999;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 14px;
+    transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+    color: #FFFFFF;
+}
+
+/* Aktiivinen kieli korostettuna */
+.lang-btn.active {
+    background: #ED6E26;
+    color: #FFFFFF !important;
+}
+
+.lang-divider {
+    color: #444440;
+    font-size: 0.75rem;
+    user-select: none;
+}

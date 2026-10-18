@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>METKA</title>
     <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="teemat.css">
 </head>
 <body>
 
+    <!-- 1. NAV BAR -->
     <nav class="navbar">
         <div class="logo-container">
             <a href="index.html"><img src="kuvat/Logo_2.png" alt="METKA Logo" class="nav-logo"></a>
@@ -31,8 +33,8 @@
             <div class="dropdown">
                 <a href="jasenyys.html" class="dropbtn">Jäsenyys<span class="arrow">&#9662;</span></a>
                 <div class="dropdown-content">
-                    <a href="jasenyys.html">Liity jäseneksi</a>
-                    <a href="jasenyys.html">Kannatusjäsenyys</a>
+                    <a href="jasenyys.html#varsinainen-jasenyys">Liity jäseneksi</a>
+                    <a href="jasenyys.html#kannatusjasenyys">Kannatusjäsenyys</a>
                 </div>
             </div>
 
@@ -93,58 +95,169 @@
                     <a href="sivu-pohja.html">Yritysyhteistyö</a>
                 </div>
             </div>
-            
-            <!-- Liity jäseneksi -painike -->
-            <a href="sivu-pohja.html" class="btn-nav">Liity jäseneksi</a>
+
+            <!-- HAKUTOIMINTA & KIELIVALINTA -->
+            <div class="nav-actions">
+                <!-- Suurennuslasi / Haku -->
+                <div class="nav-search-wrap">
+                    <button type="button" class="search-toggle-btn" id="searchToggle" aria-label="Avaa haku">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                    <div class="nav-search-bar" id="searchBar">
+                        <input type="text" placeholder="Hae sivustolta..." aria-label="Hakukenttä">
+                    </div>
+                </div>
+
+                <!-- Kielikytkin FIN / ENG -->
+                <div class="lang-switch">
+                    <a href="#" class="lang-btn active">FIN</a>
+                    <span class="lang-divider">/</span>
+                    <a href="#" class="lang-btn">ENG</a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <!-- METKA KUVAKARUSELLI -->
+    <!-- 2. KUVAKARUSELLI / SINUN METKA -->
     <header class="hero-carousel">
-        <!-- Taustalla pyörivät kuvat (Vaihda näihin omat kuvapolkusi) -->
         <div class="carousel-slide slide1" style="background-image: linear-gradient(rgba(29, 29, 27, 0.4), rgba(29, 29, 27, 0.5)), url('kuvat/METKA18vMetku.jpg');"></div>
         <div class="carousel-slide slide2" style="background-image: linear-gradient(rgba(29, 29, 27, 0.4), rgba(29, 29, 27, 0.5)), url('kuvat/METKA18v.jpg');"></div>
         <div class="carousel-slide slide3" style="background-image: linear-gradient(rgba(29, 29, 27, 0.4), rgba(29, 29, 27, 0.5)), url('kuvat/froge.jpg');"></div>
         <div class="carousel-slide slide4" style="background-image: linear-gradient(rgba(29, 29, 27, 0.4), rgba(29, 29, 27, 0.5)), url('kuvat/IMG_5587.jpg');"></div>
         
-        <!-- Tekstisisältö pysyy kiinteänä kuvien päällä -->
         <div class="hero-content">
             <h1>Sinun opiskelijakuntasi.</h1>
             <p>Tehdään opiskeluajasta Metropoliassa elämäsi parasta aikaa.</p>
             <div class="hero-btns">
-                <a href="#" class="btn-primary">Liity jäseneksi</a>
+                <a href="jasenyys.html" class="btn-primary">Liity jäseneksi</a>
+                <a href="tapahtumat.html" class="btn-secondary">Tapahtumakalenteri</a>
             </div>
         </div>
     </header>
 
-    <!-- PIKALINKIT (KUVARUUDUKKO) -->
-    <section class="grid-section">
+    <!-- 3. AJANKOHTAISTA -->
+    <section class="home-centered-section">
+        <div class="news-section-header">
+            <div class="section-title" style="margin-bottom: 0;">
+                <h2>Ajankohtaista</h2>
+            </div>
+            <!-- Skrollauspainikkeet -->
+            <div class="news-slider-controls">
+                <button type="button" class="slider-btn" id="newsPrevBtn" aria-label="Edelliset uutiset">&#10094;</button>
+                <button type="button" class="slider-btn" id="newsNextBtn" aria-label="Seuraavat uutiset">&#10095;</button>
+            </div>
+        </div>
+        
+        <div class="news-text-slider" id="newsSlider">
+            
+            <!-- Uutinen 1 -->
+            <article class="news-text-card">
+                <span class="news-article-date">15.9.2026 | Lorem Ipsum</span>
+                <h3><a href="tapahtumat.html">Lorem Ipsum</a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <a href="tapahtumat.html" class="read-more-link">Lue lisää &rarr;</a>
+            </article>
+
+            <!-- Uutinen 2 -->
+            <article class="news-text-card">
+                <span class="news-article-date">1.9.2026 | Lorem Ipsum</span>
+                <h3><a href="jasenyys.html">Lorem Ipsum</a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <a href="jasenyys.html" class="read-more-link">Lue lisää &rarr;</a>
+            </article>
+
+            <!-- Uutinen 3 -->
+            <article class="news-text-card">
+                <span class="news-article-date">20.8.2026 | Lorem Ipsum</span>
+                <h3><a href="tutorointi.html">Lorem Ipsum</a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <a href="tutorointi.html" class="read-more-link">Lue lisää &rarr;</a>
+            </article>
+
+            <!-- Uutinen 4 -->
+            <article class="news-text-card">
+                <span class="news-article-date">12.8.2026 | Lorem Ipsum</span>
+                <h3><a href="sivu-pohja.html">Lorem Ipsum</a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <a href="sivu-pohja.html" class="read-more-link">Lue lisää &rarr;</a>
+            </article>
+
+            <!-- Uutinen 5 -->
+            <article class="news-text-card">
+                <span class="news-article-date">5.8.2026 | Lorem Ipsum</span>
+                <h3><a href="sivu-pohja.html">Lorem Ipsum</a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <a href="sivu-pohja.html" class="read-more-link">Lue lisää &rarr;</a>
+            </article>
+
+            <!-- 6. KAIKKI UUTISET -KORTTI (Sama yhtenäinen ulkoasu kuin muilla) -->
+            <article class="news-text-card">
+                <span class="news-article-date">Arkisto & Tiedotteet</span>
+                <h3><a href="sivu-pohja.html">Lorem Ipsum</a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <a href="sivu-pohja.html" class="read-more-link">Lisää ajankohtaista &rarr;</a>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- 4. LÖYDÄ ETSIMÄSI NOPEASTI (PIKALINKIT) -->
+    <section class="home-centered-section" style="margin-bottom: 70px;">
         <div class="section-title">
             <h2>Löydä etsimäsi nopeasti</h2>
         </div>
-        <div class="link-grid">
+        
+        <div class="quick-links-6-grid">
+            
             <a href="sivu-pohja.html" class="grid-card">
-                <div class="card-bg-img" style="background-image: url('kuvat/IMG_5366.jpg');"></div>
+                <div class="card-bg-img" style="background-image: url('kuvat/IMG_4097.jpg');"></div>
                 <div class="card-overlay">
-                    <h3>Edunvalvonta & Apua arkeen</h3>
+                    <h3>Edunvalvonta & Apua</h3>
                 </div>
             </a>
+
             <a href="tapahtumat.html" class="grid-card">
                 <div class="card-bg-img" style="background-image: url('kuvat/METKA18v.jpg');"></div>
                 <div class="card-overlay">
                     <h3>Tapahtumat & Kalenteri</h3>
                 </div>
             </a>
+
             <a href="jasenyys.html" class="grid-card">
                 <div class="card-bg-img" style="background-image: url('kuvat/IMG_5967.jpg');"></div>
                 <div class="card-overlay">
-                    <h3>Liity jäseneksi / Kortti</h3>
+                    <h3>Liity jäseneksi</h3>
                 </div>
             </a>
+
+            <a href="tutorointi.html" class="grid-card">
+                <div class="card-bg-img" style="background-image: url('kuvat/METKA18vMetku.jpg');"></div>
+                <div class="card-overlay">
+                    <h3>Metkuposti</h3>
+                </div>
+            </a>
+
+            <a href="sivu-pohja.html" class="grid-card">
+                <div class="card-bg-img" style="background-image: url('kuvat/froge.jpg');"></div>
+                <div class="card-overlay">
+                    <h3>MeMove</h3>
+                </div>
+            </a>
+
+            <a href="yhteystiedot.html" class="grid-card">
+                <div class="card-bg-img" style="background-image: url('kuvat/IMG_7176.jpg');"></div>
+                <div class="card-overlay">
+                    <h3>Yhteystiedot/Yrkkä</h3>
+                </div>
+            </a>
+
         </div>
     </section>
 
-<!-- METKA FOOTER -->
+    <!-- 5. METKA FOOTER -->
     <footer class="main-footer">
         <div class="footer-container">
             
@@ -163,7 +276,8 @@
             <div class="footer-column">
                 <h3>Ota yhteyttä</h3>
                 <p><strong>Sähköposti:</strong> metka@metkaweb.fi</p>
-                <p><strong>Osoite:</strong> Myllypurontie 1, 00920 Helsinki</p>
+                <p><strong>Käyntiosoite:</strong> Myllypurontie 1, 00920 Helsinki</p>
+                <p><strong>Postiosoite:</strong> PL 4000, 00079 Metropolia</p>
             </div>
 
             <!-- Sarake 3: Kampukset / Toimistot -->
@@ -173,16 +287,54 @@
                 <p>Arabia - AR226</p>
                 <p>Karamalmi - KMC591</p>
                 <p>Myyrmäki - MMA102b</p>
-                <p class="footer-note">Katso tarkat aukioloajat ja tukihenkilöt yhteystiedot-sivulta.</p>
+                <p class="footer-note">Vierailut toimistolla sopimuksen mukaan.</p>
             </div>
 
         </div>
 
-        <!-- Footer-alaosa -->
         <div class="footer-bottom">
             <p>&copy; 2026 METKA. Kaikki oikeudet pidätetään.</p>
         </div>
     </footer>
 
+<!-- SKROLLAUS-SKRIPTI AJANKOHTAISTA-OSIOLLE -->
+<script>
+        const slider = document.getElementById('newsSlider');
+        const prevBtn = document.getElementById('newsPrevBtn');
+        const nextBtn = document.getElementById('newsNextBtn');
+
+        if (slider && prevBtn && nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                const cardWidth = slider.querySelector('.news-text-card').offsetWidth + 25;
+                slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                const cardWidth = slider.querySelector('.news-text-card').offsetWidth + 25;
+                slider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+            });
+        }
+
+        // Hakupalkin avaus ja sulkeminen suurennuslasista
+        const searchToggle = document.getElementById('searchToggle');
+        const searchBar = document.getElementById('searchBar');
+
+        if (searchToggle && searchBar) {
+            searchToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                searchBar.classList.toggle('active');
+                if (searchBar.classList.contains('active')) {
+                    searchBar.querySelector('input').focus();
+                }
+            });
+
+            // Suljetaan haku, jos klikataan sen ulkopuolelle
+            document.addEventListener('click', (e) => {
+                if (!searchBar.contains(e.target) && !searchToggle.contains(e.target)) {
+                    searchBar.classList.remove('active');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
