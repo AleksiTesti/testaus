@@ -1,0 +1,717 @@
+/* --- YLEISET TYYLIT --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #1D1D1B; /* METKAn vaalea taustaväri */
+    color: #F1F1F1; /* METKAn musta/tummanharmaa */
+}
+
+/* --- NAVIGAATIOPALKKI (NAVBAR) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 4%;
+    background: #1D1D1B;
+    border-bottom: 4px solid #ED6E26; /* METKAn oranssi */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    
+    /* --- TÄMÄ JÄTTÄÄ PALKIN JUMIIN YLÄLAITAAN --- */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Varmistaa, että valikko pysyy kaiken muun sisällön ja karusellin päällä */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 45px;
+    width: auto;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Suurennettu väliä, jotta isommat fontit mahtuvat kauniisti */
+}
+
+/* Navigaation peruslinkit ja pudotusvalikon napit */
+.nav-links a, .dropbtn {
+    text-decoration: none;
+    color: #F1F1F1;
+    font-weight: 700;
+    font-size: 1.05rem; /* Suurennettu fonttikoko (oli 0.9rem) */
+    padding: 10px 14px; /* Lisätty ilmaa linkkien ympärille */
+    display: inline-block;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover, .dropdown:hover .dropbtn {
+    color: #ED6E26; /* Muuttuu oranssiksi hoverissa */
+}
+
+.arrow {
+    font-size: 0.8rem;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+/* --- PUDOTUSVALIKKOYDIN (DROPDOWN) --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Laatikko joka aukeaa pääkohdan alle */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1D1D1B;
+    min-width: 240px; /* Hieman leveämpi suuremmalle tekstille */
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    border-top: 3px solid #ED6E26;
+    border-radius: 0 0 4px 4px;
+    top: 100%;
+    left: 0;
+    z-index: 1001;
+}
+
+/* Linkit alasivujen laatikon sisällä */
+.dropdown-content a {
+    color: #F1F1F1;
+    padding: 12px 18px;
+    text-align: left;
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem; /* Suurennettu fonttikoko (oli 0.85rem) */
+    border-bottom: 1px solid #1D1D1B;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #1D1D1B;
+    color: #ED6E26;
+}
+
+/* Näytetään valikko kun hiiri viedään päälle */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* --- CTA JÄSENYYSNAPPI --- */
+.btn-nav {
+    background: #ED6E26 !important;
+    color: #FFFFFF !important;
+    padding: 10px 22px !important; /* Hieman isompi nappi */
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.2s !important;
+    margin-left: 5px;
+}
+
+.btn-nav:hover {
+    background: #1D1D1B !important;
+    color: #FFFFFF !important;
+}
+
+/* --- HERO-OSIO --- */
+/* --- HERO KUVAKARUSELLI TYYLIT --- */
+.hero-carousel {
+    position: relative;
+    height: 55vh; /* Korkeus (ei vie liikaa tilaa ruudusta) */
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+/* Yleinen tyyli kaikille taustakuville */
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 1;
+    animation: metkaCarousel 15s infinite; /* 15 sekunnin kokonaissykli */
+}
+
+/* Kuvien ajoitus pehmeää häivytystä varten */
+.slide1 {
+    animation-delay: 0s;
+}
+
+.slide2 {
+    animation-delay: 5s; /* Alkaa 5 sekunnin kohdalla */
+}
+
+.slide3 {
+    animation-delay: 10s; /* Alkaa 10 sekunnin kohdalla */
+}
+
+/* Karusellin häivytysanimaatio (Fade in / Fade out) */
+@keyframes metkaCarousel {
+    0% { opacity: 0; }
+    8% { opacity: 1; }
+    33% { opacity: 1; }
+    41% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Tekstisisältö, joka nousee kuvien yläpuolelle */
+.hero-content {
+    position: relative;
+    z-index: 2; /* Nostaa tekstin animaation päälle */
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4); /* Varjo varmistaa luettavuuden vaaleillakin kuvilla */
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Napit karusellin sisällä */
+.hero-btns a {
+    text-decoration: none;
+    padding: 14px 30px;
+    font-weight: bold;
+    border-radius: 4px;
+    margin: 0 10px;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+/* Mobiilioptimointi: pienennetään tekstiä puhelimella */
+@media (max-width: 768px) {
+    .hero-carousel {
+        height: 45vh; /* Hieman matalampi mobiilissa */
+    }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    .hero-btns a {
+        padding: 10px 20px;
+        margin: 5px;
+    }
+}
+
+.btn-primary {
+    background: #ED6E26;
+    color: #FFFFFF;
+}
+
+.btn-secondary {
+    background: #FFFFFF;
+    color: #1D1D1B;
+}
+
+/* --- SISÄLTÖ & KORTIT --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background: #ED6E26;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+}
+
+.news-card {
+    background: #F1F1F1;
+    border-radius: 8px;
+    border-color: 3px #F1F1F1;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.card-img {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-content {
+    padding: 30px;
+}
+
+.card-content .tag {
+    background: #1D1D1B;
+    color: #ED6E26;
+    padding: 4px 10px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    border-radius: 4px;
+}
+
+.card-content h3 {
+    color: #1D1D1B;
+    margin: 15px 0 10px 0;
+    font-size: 1.5rem;
+}
+
+.card-content p {
+    color: #1D1D1B;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.link-arrow {
+    color: #ED6E26;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* --- RESPONSIIVISUUS --- */
+@media (max-width: 1350px) { /* Nostettu kynnystä, jotta isompi navi siirtyy nätisti mobiiliasetteluun ennen kuin se rivittyy rumasti */
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- METKA FOOTER TYYLIT --- */
+.main-footer {
+    background-color: #1D1D1B; /* METKAn virallinen musta/tummanharmaa */
+    color: #F1F1F1; /* METKAn vaalea teksti */
+    padding: 60px 0 20px 0;
+    margin-top: 60px;
+    border-top: 4px solid #ED6E26; /* METKAn oranssi korostusraita */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-logo {
+    height: 45px;
+    width: auto;
+    align-self: flex-start;
+    /* Jos logonne on tumma, tämä suodatin muuttaa sen valkoiseksi footerissa, jotta se erottuu tummalta taustalta: */
+    filter: brightness(0) invert(1); 
+}
+
+.footer-column h3 {
+    color: #ED6E26; /* Otsikot METKAn oranssilla */
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-column p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #CCCCCC;
+}
+
+.footer-note {
+    font-size: 0.85rem !important;
+    color: #888888 !important;
+    font-style: italic;
+}
+
+/* Somelinkit */
+.footer-socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-socials a {
+    color: #F1F1F1;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+    padding-bottom: 2px;
+}
+
+.footer-socials a:hover {
+    color: #ED6E26;
+    border-bottom-color: #ED6E26;
+}
+
+/* Alapalkki tekijänoikeuksille */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    padding: 20px 20px 0 20px;
+    border-top: 1px solid #333333;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #666666;
+}
+
+/* Responsiivisuus mobiilille */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    .footer-logo {
+        margin: 0 auto;
+    }
+    .footer-socials {
+        justify-content: center;
+    }
+}
+
+/* =========================================
+   ALASIVUN YLEISPOHJAN TYYLIT
+   ========================================= */
+
+/* Sivun otsikkoalue */
+.page-header {
+    background-color: #111110;
+    border-bottom: 2px solid #2a2a27;
+    padding: 40px 0;
+}
+
+.page-header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.breadcrumbs {
+    font-size: 0.85rem;
+    color: #888888;
+    margin-bottom: 15px;
+}
+
+.breadcrumbs a {
+    color: #ED6E26;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs span {
+    color: #CCCCCC;
+}
+
+.page-header h1 {
+    font-size: 2.6rem;
+    color: #F1F1F1;
+    margin-bottom: 12px;
+}
+
+.page-lead {
+    font-size: 1.15rem;
+    color: #CCCCCC;
+    line-height: 1.6;
+    max-width: 850px;
+}
+
+/* Kaksipalstainen asettelu */
+.page-main-container {
+    max-width: 1200px;
+    margin: 40px auto 60px auto;
+    padding: 0 20px;
+}
+
+.page-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* Vasen sisältöalue */
+.content-area {
+    background-color: #242422;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #333330;
+}
+
+.content-area h2 {
+    font-size: 1.8rem;
+    color: #ED6E26;
+    margin-bottom: 18px;
+}
+
+.content-area h3 {
+    font-size: 1.35rem;
+    color: #F1F1F1;
+    margin: 25px 0 12px 0;
+}
+
+.content-area p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #DDDDDD;
+    margin-bottom: 16px;
+}
+
+/* Nostolaatikko / Callout */
+.info-callout {
+    background: #1D1D1B;
+    border-left: 4px solid #ED6E26;
+    padding: 20px;
+    border-radius: 0 6px 6px 0;
+    margin: 25px 0;
+}
+
+.info-callout h4 {
+    color: #ED6E26;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.info-callout p {
+    margin-bottom: 0;
+    color: #CCCCCC;
+}
+
+/* Sisältölistat */
+.content-list {
+    margin: 15px 0 25px 25px;
+    color: #DDDDDD;
+    line-height: 1.8;
+}
+
+.content-list li {
+    margin-bottom: 6px;
+}
+
+.content-cta {
+    margin-top: 30px;
+}
+
+/* Oikea sivupalkki (Sidebar) */
+.sidebar-area {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.sidebar-card {
+    background-color: #242422;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #333330;
+}
+
+.sidebar-card h3 {
+    font-size: 1.15rem;
+    color: #ED6E26;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333330;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-menu {
+    list-style: none;
+}
+
+.sidebar-menu li {
+    margin-bottom: 10px;
+}
+
+.sidebar-menu a {
+    color: #F1F1F1;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    display: block;
+}
+
+.sidebar-menu a:hover, .sidebar-menu a.active {
+    color: #ED6E26;
+    font-weight: bold;
+}
+
+.contact-card-mini p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #CCCCCC;
+    margin-bottom: 5px;
+}
+
+.contact-card-mini .contact-role {
+    font-size: 0.85rem;
+    color: #888888;
+    text-transform: uppercase;
+}
+
+.contact-card-mini .contact-name {
+    font-weight: bold;
+    color: #F1F1F1;
+    font-size: 1.05rem;
+}
+
+.contact-card-mini a {
+    color: #ED6E26;
+    text-decoration: none;
+}
+
+.contact-card-mini a:hover {
+    text-decoration: underline;
+}
+
+/* Responsiivisuus: Tabletit ja puhelimet */
+@media (max-width: 900px) {
+    .page-layout {
+        grid-template-columns: 1fr; /* Sivupalkki siirtyy sisällön alle */
+        gap: 30px;
+    }
+
+    .content-area {
+        padding: 25px;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+}
+/* --- PIKALINKIT (KUVARUUDUKKO INDEX_2:STA) --- */
+.grid-section {
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    padding: 0 20px;
+}
+
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 25px;
+}
+
+.grid-card {
+    position: relative;
+    height: 260px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: block;
+    border: 1px solid #333330;
+    text-decoration: none;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.grid-card .card-bg-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.grid-card .card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.3), transparent);
+    padding: 25px 20px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.grid-card .card-overlay h3 {
+    color: #F1F1F1;
+    font-size: 1.3rem;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.grid-card:hover {
+    border-color: #ED6E26;
+    transform: translateY(-4px);
+}
+
+.grid-card:hover .card-bg-img {
+    transform: scale(1.06);
+}
+
+.grid-card:hover .card-overlay h3 {
+    color: #ED6E26;
+}
